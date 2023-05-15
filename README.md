@@ -3,7 +3,7 @@ A simple web page with expanding images functionality.
 
 ## Preview
 
-![Alt Text](img/expanding_images.gif)
+![Alt Text](expanding_images.gif)
 
 ## Technologies Used
 
