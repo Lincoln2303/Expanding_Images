@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli ', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    /* NOTE: We use "overflow" on hidden, because we don't want scroll bars to be shown by default */
+    /* overflow: hidden; */
+    margin: 0;
+}
+
+/* I.04. We style the container: */
+.container {
+    /* NOTE: By setting this, is going to set the container to a flex row */
+    display: flex;
+    width: 90vw;
+}
+
+/* I.05. Then we do the panel class: */
+.panel {
+    /* NOTE: This is styling all background images */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 80vh;
+    border-radius: 50px;
+    color: #fff;
+    cursor: pointer;
+    /* NOTE: We add the flex property (for width) => We'll change this in the active classß */
+    flex: 0.5;
+    /* NOTE: Let's add some space between them: */
+    margin: 10px;
+    /* NOTE: Adding a relative position, so we can position h3 absolute inside */
+    position: relative;
+    /* NOTE: Adding transition on the flex property, 0.7 second with an ease-in effect */
+    transition: flex 0.8s ease-in;
+}
+
+/* I.06. Styling h3's in the panel: */
+.panel h3 {
+    font-size: 24px;
+    /* NOTE: Now we can set here position to absolute */
+    position: absolute;
+    /* NOTE: Adding parameters */
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    /* NOTE: We set the visibility (opacity) to 0, when it isn't active */
+    opacity: 0 ;
+}
+
+/* I.07. Styling active panel */
+.panel.active {
+    /* NOTE: First we change the width with flex to 5 */
+    flex: 5;
+}
+
+/* I.09. Styling h3, when active: */
+.panel.active h3 {
+    /* NOTE: Setting the title to be visibily (with opacity) */
+    opacity: 1;
+    /* NOTE: We want to add a transition on the opacity (and 0.4sec on the delay at the end) */
+    transition: opacity 0.4s ease-in 0.4s;
+}
+
+/* I.10. We're making it responsive, with media query: */
+/* NOTE: This means every style that we put here are only going to take affect, if the screen is under 480px */
+/* AFTER: We'll do javascript in next section (section II.)  */
+@media (max-width: 510px) {
+    .container {
+        width: 100vw;
+    }
+    /* NOTE: In that case we'll also remove the last two panels */
+    .panel:nth-of-type(4),
+    .panel:nth-of-type(5) {
+        display: none;
+    }
+}
+
+
+
+
